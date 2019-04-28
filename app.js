@@ -1,2 +1,8 @@
-var g = G$('John','Doe');
-g.greet().setLang('ua').greet(true);
+$('#login').click(function () {
+
+    var selectedLang = $('#lang').val();
+
+    G$('John','Doe',selectedLang).htmlGreeting('#greeting',true);
+
+});
+

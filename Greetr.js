@@ -21,7 +21,7 @@
 
     var logMessages = {
         en:'Logged in',
-        ua: 'Зайшов(ла)'
+        ua: 'Ввійшов(ла)'
     };
 
 
@@ -71,7 +71,7 @@
             if(!$){
                 throw "jQuery not loaded";
             }
-            if(formal){
+            if(!selector){
                 throw "Missing selector";
             }
             var msg;
@@ -91,8 +91,11 @@
         self.firstName = firstName || '';
         self.lastName = lastName || '';
         self.language = language || 'en';
+
+        self.validate();
     };
 
+    // trick borrowed from jQuery so we don't have to use 'new' keyword;
     Greeter.init.prototype = Greeter.prototype;
 
     global.Greeter = global.G$ = global.g$ = Greeter;
